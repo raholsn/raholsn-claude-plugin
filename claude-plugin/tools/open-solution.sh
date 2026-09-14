@@ -29,7 +29,7 @@ NC='\033[0m' # No Color
 find_and_open() {
     local search_pattern="$1"
     local max_depth="$2"
-    
+
     local matches=()
 
     # Try .slnx first, fall back to .sln
@@ -46,7 +46,7 @@ find_and_open() {
         fi
         [[ ${#matches[@]} -gt 0 ]] && break
     done
-    
+
     # No matches
     if [[ ${#matches[@]} -eq 0 ]]; then
         echo -e "${YELLOW}No solution files found${NC}"
@@ -58,7 +58,7 @@ find_and_open() {
         echo "Try: open-solution [pattern] 5  # to search deeper"
         return 1
     fi
-    
+
     # Exactly one match - open it
     if [[ ${#matches[@]} -eq 1 ]]; then
         local solution="${matches[1]}"  # zsh arrays are 1-indexed
@@ -67,7 +67,7 @@ find_and_open() {
         open "$solution"
         return 0
     fi
-    
+
     # Multiple matches - list them
     echo -e "${YELLOW}Multiple solution files found:${NC}"
     echo ""

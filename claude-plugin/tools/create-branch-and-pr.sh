@@ -157,4 +157,3 @@ pr_args+=(--repo "$remote_url")
 cd "$repo"
 gh "${pr_args[@]}" ||
     fail "PR creation failed; branch $branch remains pushed on $remote. Resolve the error and retry gh pr create."
-
