@@ -1,0 +1,37 @@
+{
+  "csharp": {
+    "command": "/Users/rasmus.olsson/.dotnet/tools/roslyn-language-server",
+    "args": [
+      "--stdio",
+      "--autoLoadProjects",
+      "--logLevel",
+      "Information",
+      "--extensionLogDirectory",
+      "/Users/rasmus.olsson/.claude/roslyn-ls-logs"
+    ],
+    "transport": "stdio",
+    "extensionToLanguage": {
+      ".cs": "csharp",
+      ".csx": "csharp"
+    },
+    "initializationOptions": {},
+    "settings": {},
+    "startupTimeout": 120000
+  },
+  "terraform": {
+    "command": "terraform-ls",
+    "args": ["serve"],
+    "extensionToLanguage": {
+      ".tf": "terraform",
+      ".tfvars": "terraform"
+    }
+  },
+  "yaml": {
+    "command": "yaml-language-server",
+    "args": ["--stdio"],
+    "extensionToLanguage": {
+      ".yaml": "yaml",
+      ".yml": "yaml"
+    }
+  }
+}

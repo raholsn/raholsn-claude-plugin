@@ -1,0 +1,25 @@
+{
+  "name": "raholsn",
+  "description": "Personal, employer-neutral engineering workflow engine. Every company specific comes from a profile and an optional pack.",
+  "version": "0.5.1",
+  "author": {
+    "name": "Rasmus Olsson"
+  },
+  "commands": [
+    "./skills/work/work.md",
+    "./skills/profile/profile.md",
+    "./skills/code-review/code-review.md",
+    "./skills/fix-comments/fix-comments.md",
+    "./skills/logs/logs.md",
+    "./skills/rabbitmq/rabbitmq.md",
+    "./skills/sql-server-reader/sql-server-reader.md",
+    "./skills/create-linear-ticket/create-linear-ticket.md",
+    "./skills/grill-me-pragmatic/grill-me-pragmatic.md",
+    "./skills/write-requirements/write-requirements.md",
+    "./skills/plan-implementation/plan-implementation.md",
+    "./skills/get-deploy-status/get-deploy-status.md",
+    "./skills/show-pullrequests/show-pullrequests.md",
+    "./skills/open-solution/open-solution.md",
+    "./skills/open-argo/open-argo.md"
+  ]
+}

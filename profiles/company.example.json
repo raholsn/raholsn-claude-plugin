@@ -1,0 +1,99 @@
+{
+  "assignment": "example-client",
+  "roots": {
+    "repos": "~/dev",
+    "artifacts": "~/.raholsn-work"
+  },
+  "vcs": {
+    "host": "github",
+    "cli": "gh",
+    "org": "REPLACE_WITH_GITHUB_OWNER",
+    "base_branch": "main",
+    "branch_template": "{ticket}",
+    "pr_title_template": "{ticket} {description}",
+    "commit_title_template": "{ticket} {title}",
+    "draft_prs": true
+  },
+  "build": {
+    "build_cmd": "npm run build",
+    "test_cmd": "npm test",
+    "test_filter_template": "-- -t \"{class}\""
+  },
+  "guidance_file": "AGENTS.md",
+  "tool_signature": "raholsn",
+  "pack": "~/dev/company-pack",
+  "tracker": {
+    "type": "linear",
+    "mcp": "linear",
+    "issue_hosts": [
+      "linear.app"
+    ],
+    "ticket_regex": "^[A-Z]+-[0-9]+$",
+    "prefix": "REPLACE_WITH_TEAM_PREFIX",
+    "defaults": {
+      "team": "REPLACE_WITH_LINEAR_TEAM",
+      "assignee": "me"
+    },
+    "presets": {
+      "example-project": {
+        "project": "REPLACE_WITH_PROJECT",
+        "milestone": "REPLACE_WITH_MILESTONE",
+        "labels": []
+      }
+    }
+  },
+  "knowledge": {
+    "domains": {}
+  },
+  "logs": {
+    "type": "elasticsearch",
+    "mcp": "elastic",
+    "mapping": "otel",
+    "streams": {
+      "logs": "logs-*.otel-*",
+      "traces": "traces-*.otel-*"
+    },
+    "default_window": "1 hour",
+    "notes": "knowledge/logging.md"
+  },
+  "sql": {
+    "backend": "sqlcmd",
+    "authentication": "ActiveDirectoryDefault",
+    "servers": {
+      "stage": "sql-stage.example.com",
+      "prod": "sql-prod.example.com"
+    },
+    "default_server": "stage",
+    "default_timeout": 30,
+    "default_row_limit": 20
+  },
+  "rabbitmq": {
+    "default_environment": "sandbox",
+    "environments": {
+      "sandbox": {
+        "management_url": "https://rabbitmq.example.com",
+        "vhost": "/",
+        "auth": {
+          "type": "basic",
+          "curl_config_file": "~/.config/rabbitmq/sandbox.auth.conf"
+        },
+        "dlq_name_regex": "[.]dead$"
+      },
+      "production": {
+        "management_url": "http://127.0.0.1:15673",
+        "vhost": "/",
+        "auth": {
+          "type": "oauth2",
+          "curl_config_file": "~/.config/rabbitmq/prod.auth.conf"
+        },
+        "port_forward": {
+          "context": "REPLACE_WITH_PROD_KUBERNETES_CONTEXT",
+          "namespace": "REPLACE_WITH_RABBITMQ_NAMESPACE",
+          "resource": "svc/REPLACE_WITH_RABBITMQ_SERVICE",
+          "local_port": 15673,
+          "remote_port": 15672
+        }
+      }
+    }
+  }
+}

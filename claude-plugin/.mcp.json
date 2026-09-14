@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "elastic": {
+      "type": "http",
+      "url": "${ELASTIC_MCP_URL}",
+      "headers": {
+        "Authorization": "ApiKey ${ELASTIC_MCP_API_KEY}"
+      }
+    },
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "sql-server": {
+      "type": "http",
+      "url": "${SQL_MCP_URL}"
+    }
+  }
+}
